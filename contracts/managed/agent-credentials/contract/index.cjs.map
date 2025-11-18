@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "file": "index.cjs",
+  "sourceRoot": "../../../../",
+  "sources": ["contracts/agent-credentials.compact"],
+  "names": [],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAAA;;;;;;;;;;MAiBA,AAAA,eAQC;;;;;cAR8B,aAA6B;;;;;;;;;;;yCAA7B,aAA6B;;;;;;;;;iDAA7B,aAA6B;;;OAQ3D;MAKD,AAAA,kBAWC;;;;;cAVG,aAA6B;cAC7B,oBAAoC;;;;;;;;;;;yCADpC,aAA6B,+BAC7B,oBAAoC;;;;;;;;;oDADpC,aAA6B;oDAC7B,oBAAoC;;;OASvC;MAGD,AAAA,aAEC;;;;;;;;;;;;;;;;;;;;;;OAAA;;;;;;;GACA;EA/CD;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAQA;;;;;;;;;uDAAwC;IACxC;;;;;;;;;uDAAsC;IACtC;;;;;;;;;uDAAuC;IAGvC;;;;;;;;;uDAAyD;;;;;;;GAkCxD;EA9BD,AAAA,kBAQC,4BAR8B,aAA6B;IAIxD;;;;;;;yGAAoC,aAAW;;uDAAvB;UAGxB,KAAgB;IAAhB;;;;;;;;;;2EAAA,KAAgB;;;;sDAAA;;GACnB;EAKD,AAAA,qBAWC;;wBAVG,aAA6B;wBAC7B,oBAAoC;;4BAK7B,aAAW,KAAI,oBAAkB;;UAGxC,KAAc;IAAd;;;;;;;;;;2EAAA,KAAc;;;;sDAAA;;GACjB;EAGD,AAAA,gBAEC;UADG,KAAe;IAAf;;;;;;;;;;2EAAA,KAAe;;;;sDAAA;;GAClB;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAtCD;qCAAA;;;;;;;;;;;wFAAwC;KAAA;IACxC;qCAAA;;;;;;;;;;;wFAAsC;KAAA;IACtC;qCAAA;;;;;;;;;;;wFAAuC;KAAA;IAGvC;qCAAA;;;;;;;;;;;wFAAyD;KAAA;;;;;;;;;;;;;;"
+}

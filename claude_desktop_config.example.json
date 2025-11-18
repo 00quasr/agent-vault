@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "agent-vault": {
+      "command": "node",
+      "args": [
+        "/path/to/agent-vault/dist/src/mcp-server/server.js"
+      ],
+      "env": {
+        "WALLET_SEED": "your_wallet_seed_here",
+        "DATABASE_URL": "postgresql://user:password@host/database?sslmode=require"
+      }
+    }
+  }
+}

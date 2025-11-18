@@ -1,0 +1,57 @@
+{
+  "name": "agent-vault",
+  "version": "0.1.0",
+  "description": "Zero-knowledge authorization layer for AI agents using Midnight ZK proofs",
+  "type": "module",
+  "scripts": {
+    "compile": "compact compile contracts/agent-credentials.compact contracts/managed/agent-credentials",
+    "build": "tsc",
+    "deploy": "node dist/scripts/deploy.js",
+    "cli": "node dist/src/cli/midnight-cli.js",
+    "cli:old": "node dist/scripts/cli.js",
+    "demo": "node dist/demo/agent-simulation.js",
+    "demo:real": "node dist/demo/agent-simulation-real.js",
+    "demo:attack": "node dist/demo/attack-simulation.js",
+    "demo:e2e": "node dist/demo/end-to-end-demo.js",
+    "mcp:server": "node dist/src/mcp-server/server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@midnight-ntwrk/compact-runtime": "^0.9.0",
+    "@midnight-ntwrk/ledger": "^4.0.0",
+    "@midnight-ntwrk/midnight-js-contracts": "2.0.2",
+    "@midnight-ntwrk/midnight-js-http-client-proof-provider": "2.0.2",
+    "@midnight-ntwrk/midnight-js-indexer-public-data-provider": "2.0.2",
+    "@midnight-ntwrk/midnight-js-level-private-state-provider": "2.0.2",
+    "@midnight-ntwrk/midnight-js-network-id": "2.0.2",
+    "@midnight-ntwrk/midnight-js-node-zk-config-provider": "2.0.2",
+    "@midnight-ntwrk/midnight-js-types": "2.0.2",
+    "@midnight-ntwrk/wallet": "5.0.0",
+    "@midnight-ntwrk/wallet-api": "5.0.0",
+    "@midnight-ntwrk/zswap": "^4.0.0",
+    "@modelcontextprotocol/sdk": "^1.22.0",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.2.1",
+    "@types/express": "^4.17.21",
+    "@types/node": "^24.4.0",
+    "@types/pg": "^8.10.9",
+    "@types/ws": "^8.5.10",
+    "typescript": "^5.9.2"
+  },
+  "keywords": [
+    "midnight",
+    "zero-knowledge",
+    "ai-agents",
+    "credential-management",
+    "mcp",
+    "security"
+  ],
+  "author": "Agent Vault Team",
+  "license": "MIT"
+}

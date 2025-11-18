@@ -1,0 +1,73 @@
+# Claude Code
+.claude/
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+dist/
+build/
+*.js.map
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Claude Desktop config (contains sensitive data)
+claude_desktop_config.json
+
+# Sensitive vault data
+.vault-secrets.json
+*.key
+*.pem
+
+# Midnight private keys and wallets
+midnight-level-db/
+*.wallet
+
+# Deployment artifacts
+deployment.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# TypeScript
+*.tsbuildinfo
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Next.js (dashboard)
+dashboard/.next/
+dashboard/out/
+dashboard/.vercel
+
+# Compiled Midnight contracts (optional - uncomment if you want to ignore compiled artifacts)
+# contracts/managed/
+# contracts/**/*.zkir
+# contracts/**/*.prover
+# contracts/**/*.verifier
