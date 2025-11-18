@@ -11,6 +11,9 @@ Built for Midnight Summit Hackathon 2025 • London, Nov 17-19
 
 ---
 
+https://github.com/user-attachments/assets/75db5afe-ada3-4cda-9991-3515289d7a77
+
+
 ## The Problem
 
 As AI agents become more autonomous, three critical challenges emerge:
@@ -342,98 +345,7 @@ agent-vault/
 
 ---
 
-## Business Model
 
-**Total Addressable Market**: $90B+ across three segments:
-
-### Market Segments:
-
-**1. Enterprise AI Compliance** ($50B TAM)
-- Problem: Enterprises need AI but can't risk data leaks or violations
-- Customers: Banks, healthcare, legal, HR platforms
-- Revenue: Enterprise licensing + compliance tooling
-
-**2. Web3 Agent Economies** ($30B TAM)
-- Problem: No trust infrastructure for agent-to-agent interactions
-- Customers: DeFi protocols, DAOs, agent marketplaces, trading platforms
-- Revenue: Transaction fees + platform fees
-
-**3. Privacy-Preserving AI** ($10B TAM)
-- Problem: Users want AI but don't trust it with their data
-- Customers: Medical AI, financial advisors, personal assistants
-- Revenue: API usage + premium features
-
-### Pricing Model:
-
-**Developer Tier**: $99/month
-- 100 agents
-- 10K verifications/month
-- Basic audit logs
-- Community support
-
-**Enterprise Tier**: $999/month
-- Unlimited agents
-- 100K verifications/month
-- Advanced compliance reporting
-- Dedicated support
-- Custom integrations
-
-**Marketplace Tier**: 2.5% transaction fee
-- Agent-to-agent payments
-- Escrow services
-- Dispute resolution
-- Revenue share with agent operators
-
----
-
-## Hackathon Judges - Quick Demo
-
-**60-Second Demo Flow**:
-
-**Hook** (10s):
-> "AI agents will power the $90B autonomous economy - but how do you trust them? How do you prove they're honest? How do regulators verify their behavior?"
-
-**Solution** (30s):
-> "We've built the first **Verifiable Autonomous Agents platform**. Agents prove they're authorized using Midnight ZK proofs - cryptographically unforgeable. They execute on private data without ever seeing it. Every action is audited on the blockchain."
-
-[Show architecture diagram]
-
-> "This enables three markets: Enterprise AI compliance ($50B), Web3 agent economies ($30B), and privacy-preserving AI ($10B)."
-
-**Demo** (15s):
-```bash
-# Show dashboard
-cd dashboard && npm run dev
-# Open: http://localhost:3000
-```
-
-**Impact** (5s):
-> "This unlocks trustless agent economies, makes AI regulatory compliant, and enables private AI applications. First time anyone's combined ZK proofs with AI agent infrastructure."
-
-**Key Talking Points**:
-- **Verifiable Autonomous Agents** - Prove execution without revealing secrets
-- **Real Midnight blockchain** - Contract deployed to testnet
-- **Cryptographically enforced** - Not prompt-based (can't bypass)
-- **Multiple use cases** - VAA, private AI, compliance, marketplaces
-- **Production architecture** - MCP server + encrypted vault + ZK proofs
-- **Immutable audit trail** - Blockchain-based compliance
-
----
-
-## Security
-
-**Encryption**: AES-256-CBC with unique IVs
-**Key Management**: Scrypt key derivation
-**Blockchain**: Midnight zero-knowledge proofs
-**Audit Trail**: Immutable on-chain logging
-
-**Security Principles**:
-1. **Never trust agents** - Enforce with infrastructure
-2. **PCI mindset** - "We crash, we don't guess"
-3. **Store everything** - Never lose data
-4. **Simplicity first** - Complexity is the enemy
-
----
 
 ## License
 
@@ -451,7 +363,7 @@ MIT License - see LICENSE file
 
 ## Contact
 
-Built by the Agent Vault Team for Midnight Summit Hackathon 2025
+Built by the Keanu Klestil for Midnight Summit Hackathon 2025
 
 **Questions?** Check the [docs](./docs/) or open an issue.
 
@@ -460,5 +372,3 @@ Built by the Agent Vault Team for Midnight Summit Hackathon 2025
 **This is the future of AI agent security.**
 
 Agents can be helpful AND secure. They just need the right infrastructure.
-
-That infrastructure is Agent Vault.
