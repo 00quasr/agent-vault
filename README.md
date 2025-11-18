@@ -1,4 +1,4 @@
-# 🤖 Agent Vault → Verifiable Credential & Reputation Management
+# Agent Vault - Verifiable Credential & Reputation Management
 
 **ZK-Powered Verification System for AI Agents**
 
@@ -11,7 +11,7 @@ Built for Midnight Summit Hackathon 2025 • London, Nov 17-19
 
 ---
 
-## 🎯 The Problem
+## The Problem
 
 As AI agents become more autonomous, three critical challenges emerge:
 
@@ -35,7 +35,7 @@ As AI agents become more autonomous, three critical challenges emerge:
 
 ---
 
-## 💡 The Solution
+## The Solution
 
 **Agent Vault: Verifiable Credential & Reputation Management System**
 
@@ -43,68 +43,116 @@ First platform combining Midnight ZK proofs + verifiable credentials + reputatio
 
 ### Core Features:
 
-1. 🎫 **Verifiable Credentials** → Issue tamper-proof credentials on Midnight blockchain
-2. 📊 **Reputation Management** → Track performance and build verifiable track records
-3. 🔐 **Zero-Knowledge Verification** → Prove capabilities without revealing secrets
-4. ✅ **Privacy-Preserving Authorization** → Agents never see sensitive credentials
-5. 🔍 **Immutable Audit Trail** → All verifications logged on blockchain
+1. **Verifiable Credentials** - Issue tamper-proof credentials on Midnight blockchain
+2. **Reputation Management** - Track performance and build verifiable track records
+3. **Zero-Knowledge Verification** - Prove capabilities without revealing secrets
+4. **Privacy-Preserving Authorization** - Agents never see sensitive credentials
+5. **Immutable Audit Trail** - All verifications logged on blockchain
 
 ### How It Works:
 
-1. **Issue Credential** → Create immutable credential on blockchain
-2. **Build Reputation** → Track successful authorizations and task completions
-3. **Verify & Prove** → Generate zero-knowledge proofs of capabilities
-4. **Access Resources** → Vault executes with credentials agent never sees
-5. **Update Reputation** → Performance history builds trustworthiness
+1. **Issue Credential** - Create immutable credential on blockchain
+2. **Build Reputation** - Track successful authorizations and task completions
+3. **Verify & Prove** - Generate zero-knowledge proofs of capabilities
+4. **Access Resources** - Vault executes with credentials agent never sees
+5. **Update Reputation** - Performance history builds trustworthiness
 
 **Key Innovation:** Cryptographically verifiable reputation without exposing implementation details. Trustless verification through zero-knowledge proofs.
 
 ---
 
-## 🚀 Use Cases Enabled
+## Architecture
 
-### 1. **Verifiable Autonomous Agents** (VAA)
+```mermaid
+sequenceDiagram
+    participant Agent as AI Agent
+    participant MCP as MCP Server/Vault
+    participant Contract as Midnight Contract
+    participant Vault as Encrypted Vault Storage
+    participant API as External API (GitHub)
+
+    Note over Agent,API: CREDENTIAL ISSUANCE
+    Agent->>Contract: issueCredential(agentSecret)
+    Contract->>Contract: Generate ZK commitment
+    Contract->>Contract: Store commitment on-chain
+    Contract-->>Agent: Credential issued
+
+    Note over Agent,API: AUTHORIZED REQUEST
+    Agent->>MCP: Request access (credential, secretName, action)
+    MCP->>Contract: proveAuthorization(credential)
+    Contract->>Contract: Verify ZK proof
+    Contract-->>MCP: Proof valid
+    MCP->>Vault: Retrieve encrypted secret
+    Vault-->>MCP: Return encrypted value
+    MCP->>MCP: Decrypt secret (AES-256)
+    MCP->>API: Execute action with real API key
+    API-->>MCP: Return results
+    MCP-->>Agent: Results (NOT the secret!)
+    Contract->>Contract: Increment successfulAuth counter
+
+    Note over Agent,API: MALICIOUS REQUEST
+    Agent->>MCP: Request with invalid credential
+    MCP->>Contract: proveAuthorization(invalidCredential)
+    Contract->>Contract: ZK proof fails
+    Contract-->>MCP: Invalid proof
+    Contract->>Contract: Increment blockedAttempts counter
+    MCP-->>Agent: Access denied
+```
+
+### Tech Stack
+
+- **Blockchain**: Midnight Network (Testnet)
+- **Smart Contracts**: Compact language (v0.18)
+- **Encryption**: AES-256-CBC
+- **MCP Server**: Model Context Protocol for AI agent integration
+- **Database**: JSON file storage (production: PostgreSQL)
+
+---
+
+## Use Cases Enabled
+
+### 1. Verifiable Autonomous Agents (VAA)
 Agents prove they executed correctly:
-- ✅ DeFi trading bots that prove they followed strategy
-- ✅ DAO agents that prove they followed governance rules
-- ✅ Compliance bots that prove they used correct model version
-- ✅ On-chain investment advisors with verifiable execution
+- DeFi trading bots that prove they followed strategy
+- DAO agents that prove they followed governance rules
+- Compliance bots that prove they used correct model version
+- On-chain investment advisors with verifiable execution
 
 **Example**: "Agent X used Llama 3.1 to classify transaction as 'risky'" - provable on blockchain.
 
-### 2. **Private AI + Private Data**
+### 2. Private AI + Private Data
 Agents operate on sensitive data without exposing it:
-- ✅ Medical agents analyzing health records (HIPAA compliant)
-- ✅ HR agents using confidential CV data
-- ✅ Financial agents reading bank statements privately
-- ✅ Legal agents working on privileged documents
+- Medical agents analyzing health records (HIPAA compliant)
+- HR agents using confidential CV data
+- Financial agents reading bank statements privately
+- Legal agents working on privileged documents
 
 **Example**: Agent analyzes medical records, returns diagnosis - doctor never sees raw data exposure.
 
-### 3. **Agent Identity & Attestation**
+### 3. Agent Identity & Attestation
 ZK-based agent reputation and identity:
-- ✅ Proof: "This agent belongs to verified developer" (without revealing developer)
-- ✅ Agent passports and trust scores
-- ✅ Preventing agent impersonation in A2A economies
-- ✅ Verifiable agent credentials
+- Proof: "This agent belongs to verified developer" (without revealing developer)
+- Agent passports and trust scores
+- Preventing agent impersonation in A2A economies
+- Verifiable agent credentials
 
 **Example**: Agent proves it's authorized by enterprise customer without revealing which enterprise.
 
-### 4. **Compliance & Auditing**
+### 4. Compliance & Auditing
 Satisfy regulators while preserving privacy:
-- ✅ Prove GDPR/MiCA compliance without exposing data
-- ✅ Demonstrate data access policies were followed
-- ✅ Immutable audit trail on blockchain
-- ✅ AML/KYC agents that prove they checked without exposing PII
+- Prove GDPR/MiCA compliance without exposing data
+- Demonstrate data access policies were followed
+- Immutable audit trail on blockchain
+- AML/KYC agents that prove they checked without exposing PII
 
 **Example**: Agent proves it followed data retention policy - auditable by regulators, private to users.
 
-### 5. **Decentralized Agent Marketplaces**
+### 5. Decentralized Agent Marketplaces
 Trustless buying/selling of agent services:
-- ✅ Buyers protect strategic data
-- ✅ Sellers protect proprietary algorithms
-- ✅ Verifiable work execution
-- ✅ Automatic payment on proof of completion
+- Buyers protect strategic data
+- Sellers protect proprietary algorithms
+- Verifiable work execution
+- Automatic payment on proof of completion
 
 **Example**: Buyer requests data analysis with private requirements, agent delivers verified results, payment released automatically.
 
@@ -145,7 +193,7 @@ Trustless buying/selling of agent services:
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -201,7 +249,7 @@ Dashboard available at: http://localhost:3000
 
 ---
 
-## 📋 Available Commands
+## Available Commands
 
 | Command | Description |
 |---------|-------------|
@@ -214,33 +262,33 @@ Dashboard available at: http://localhost:3000
 
 ---
 
-## 🎬 Demo Scenarios
+## Demo Scenarios
 
 ### Real Demo (`npm run demo:real`)
 
 **100% real - not mocked!**
 
-1. **Authorized Agent** ✅
+1. **Authorized Agent**
    - Agent needs GitHub data
    - Presents valid Midnight credential
    - Vault verifies on-chain
    - Makes real GitHub API call
    - Agent gets results (never sees API key)
 
-2. **Malicious Agent** 🛡️
+2. **Malicious Agent**
    - Attempts SQL injection, brute force, etc.
    - All attacks blocked by ZK proof verification
    - Demonstrates infrastructure-enforced security
 
 **What's Real:**
-- ⛓️ Midnight blockchain verification
-- 🔐 AES-256 encryption/decryption
-- 🌐 Actual GitHub API calls
-- 📊 Real-time stats
+- Midnight blockchain verification
+- AES-256 encryption/decryption
+- Actual GitHub API calls
+- Real-time stats
 
 ---
 
-## 🏆 Deployed Contract
+## Deployed Contract
 
 **Network**: Midnight Testnet
 **Address**: `02009ab82d5427c0f19872e5571f7b647ac0f75e3786027b8edfb0c629882bea1b5e`
@@ -257,7 +305,7 @@ Dashboard available at: http://localhost:3000
 
 ---
 
-## 📊 Dashboard
+## Dashboard
 
 Professional, minimal dashboard built with shadcn/ui:
 
@@ -270,7 +318,7 @@ Professional, minimal dashboard built with shadcn/ui:
 
 ---
 
-## 🔧 Project Structure
+## Project Structure
 
 ```
 agent-vault/
@@ -294,7 +342,7 @@ agent-vault/
 
 ---
 
-## 💼 Business Model
+## Business Model
 
 **Total Addressable Market**: $90B+ across three segments:
 
@@ -338,7 +386,7 @@ agent-vault/
 
 ---
 
-## 🎯 Hackathon Judges - Quick Demo
+## Hackathon Judges - Quick Demo
 
 **60-Second Demo Flow**:
 
@@ -363,16 +411,16 @@ cd dashboard && npm run dev
 > "This unlocks trustless agent economies, makes AI regulatory compliant, and enables private AI applications. First time anyone's combined ZK proofs with AI agent infrastructure."
 
 **Key Talking Points**:
-- 🤖 **Verifiable Autonomous Agents** - Prove execution without revealing secrets
-- ⛓️ **Real Midnight blockchain** - Contract deployed to testnet
-- 🔐 **Cryptographically enforced** - Not prompt-based (can't bypass)
-- 📊 **Multiple use cases** - VAA, private AI, compliance, marketplaces
-- 🌐 **Production architecture** - MCP server + encrypted vault + ZK proofs
-- 📜 **Immutable audit trail** - Blockchain-based compliance
+- **Verifiable Autonomous Agents** - Prove execution without revealing secrets
+- **Real Midnight blockchain** - Contract deployed to testnet
+- **Cryptographically enforced** - Not prompt-based (can't bypass)
+- **Multiple use cases** - VAA, private AI, compliance, marketplaces
+- **Production architecture** - MCP server + encrypted vault + ZK proofs
+- **Immutable audit trail** - Blockchain-based compliance
 
 ---
 
-## 🔐 Security
+## Security
 
 **Encryption**: AES-256-CBC with unique IVs
 **Key Management**: Scrypt key derivation
@@ -387,13 +435,13 @@ cd dashboard && npm run dev
 
 ---
 
-## 📝 License
+## License
 
 MIT License - see LICENSE file
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Midnight Network** - For zero-knowledge infrastructure
 - **shadcn/ui** - For beautiful, accessible components
@@ -401,7 +449,7 @@ MIT License - see LICENSE file
 
 ---
 
-## 📞 Contact
+## Contact
 
 Built by the Agent Vault Team for Midnight Summit Hackathon 2025
 
@@ -409,7 +457,7 @@ Built by the Agent Vault Team for Midnight Summit Hackathon 2025
 
 ---
 
-**🚀 This is the future of AI agent security.**
+**This is the future of AI agent security.**
 
 Agents can be helpful AND secure. They just need the right infrastructure.
 
